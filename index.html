@@ -12,16 +12,16 @@
       <div class="title">📄 MY RESUME</div>
       <div class="content">
         <p>Welcome to my portfolio!</p>
-        <button class="btn" onclick="goToCreative()">Enter</button>
+        <button class="btn" onclick="goToPortfolio()">Enter</button>
       </div>
     </div>
   </div>
 
   <script>
-    function goToCreative() {
+    function goToPortfolio() {
       document.body.classList.add("fade-out");
       setTimeout(() => {
-        window.location.href = "creative.html"; // Make sure this matches your portfolio filename
+        window.location.href = "portfolio.html"; // ✅ This now matches your actual file
       }, 500);
     }
   </script>
