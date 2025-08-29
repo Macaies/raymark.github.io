@@ -13,27 +13,50 @@
       <p class="subtitle">Photography • Visual Storytelling • Exploration</p>
       <nav>
         <a href="index.html">Home</a>
-        <a href="#gallery">Gallery</a>
+        <a href="#album">Album</a>
         <a href="#about">About</a>
       </nav>
     </header>
 
     <section id="about">
-      <p>Beyond the code and data pipelines, I find inspiration in photography — capturing moments that speak without words. Whether it's the texture of a city wall, the glow of a sunset, or the quiet rhythm of nature, photography helps me see the world through a different lens.</p>
+      <p>
+        Beyond the point-and-shoot nature, I find joy when a photograph evokes, piques imaginations and shares untold stories.
+        Whether it's the subtle emotion in a portrait, the grandeur of a landscape, or the candidness of a street scene,
+        each image is a narrative waiting to be discovered. Dive into this curated collection and explore the world through my lens.
+        Let the stories unfold and the visuals bring a fresh perspective.
+      </p>
     </section>
 
-    <section id="gallery">
-      <h2>📸 Photo Gallery</h2>
-      <div class="gallery">
-        <img src="assets/images/hobby1.jpg" alt="Photo 1">
-        <img src="assets/images/hobby2.jpg" alt="Photo 2">
-        <img src="assets/images/hobby3.jpg" alt="Photo 3">
-        <img src="assets/images/hobby4.jpg" alt="Photo 4">
-        <img src="assets/images/hobby5.jpg" alt="Photo 5">
-        <img src="assets/images/hobby6.jpg" alt="Photo 6">
-        <img src="assets/images/hobby7.jpg" alt="Photo 7">
-        <img src="assets/images/hobby8.jpg" alt="Photo 8">
-        <img src="assets/images/hobby9.jpg" alt="Photo 9">
+    <section id="album">
+      <h2>📷 Photo Album</h2>
+
+      <!-- Scrapbook Thumbnails -->
+      <div class="scrapbook-grid">
+        <img src="assets/images/hobby1.jpg" alt="Field & Sky" class="thumb">
+        <img src="assets/images/hobby2.jpg" alt="Direct Gaze" class="thumb">
+        <img src="assets/images/hobby3.jpg" alt="Monochrome Mood" class="thumb">
+        <img src="assets/images/hobby4.jpg" alt="Flowing Form" class="thumb">
+        <img src="assets/images/hobby5.jpg" alt="Shadow Play" class="thumb">
+        <img src="assets/images/hobby6.jpg" alt="Contemplation" class="thumb">
+        <img src="assets/images/hobby7.jpg" alt="Wonder" class="thumb">
+        <img src="assets/images/hobby8.jpg" alt="Street Reflections" class="thumb">
+        <img src="assets/images/hobby9.jpg" alt="Floral Crown" class="thumb">
+        <img src="assets/images/hobby10.jpg" alt="Corridor Walk" class="thumb">
+        <img src="assets/images/hobby11.jpg" alt="Grounded" class="thumb">
+        <img src="assets/images/hobby12.jpg" alt="Hallway Pause" class="thumb">
+      </div>
+
+      <!-- Album Viewer -->
+      <div class="album-viewer">
+        <div class="shutter-overlay"></div>
+        <div class="photo-frame">
+          <img id="album-img" src="assets/images/hobby1.jpg" alt="Photo 1">
+          <div class="caption">Field & Sky</div>
+        </div>
+        <div class="controls">
+          <button id="prev">←</button>
+          <button id="next">→</button>
+        </div>
       </div>
     </section>
 
@@ -42,12 +65,8 @@
     </footer>
   </div>
 
-  <div id="lightbox">
-    <span id="close">&times;</span>
-    <img id="lightbox-img" src="" alt="Full View">
-  </div>
-
   <script>
+    // Smooth page transitions
     document.querySelectorAll("a").forEach(link => {
       if (link.href.includes("#")) return;
       link.addEventListener("click", e => {
@@ -59,24 +78,54 @@
       });
     });
 
-    c    const galleryImages = document.querySelectorAll(".gallery img");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const closeBtn = document.getElementById("close");
+    // Album viewer logic
+    const images = [
+      { src: "assets/images/hobby1.jpg", caption: "Field & Sky" },
+      { src: "assets/images/hobby2.jpg", caption: "Direct Gaze" },
+      { src: "assets/images/hobby3.jpg", caption: "Monochrome Mood" },
+      { src: "assets/images/hobby4.jpg", caption: "Flowing Form" },
+      { src: "assets/images/hobby5.jpg", caption: "Shadow Play" },
+      { src: "assets/images/hobby6.jpg", caption: "Contemplation" },
+      { src: "assets/images/hobby7.jpg", caption: "Wonder" },
+      { src: "assets/images/hobby8.jpg", caption: "Street Reflections" },
+      { src: "assets/images/hobby9.jpg", caption: "Floral Crown" },
+      { src: "assets/images/hobby10.jpg", caption: "Corridor Walk" },
+      { src: "assets/images/hobby11.jpg", caption: "Grounded" },
+      { src: "assets/images/hobby12.jpg", caption: "Hallway Pause" }
+    ];
 
-    galleryImages.forEach(img => {
-      img.addEventListener("click", () => {
-        lightbox.style.display = "flex";
-        lightboxImg.src = img.src;
+    let currentIndex = 0;
+    const albumImg = document.getElementById("album-img");
+    const caption = document.querySelector(".caption");
+    const shutter = document.querySelector(".shutter-overlay");
+
+    function showImage(index) {
+      shutter.style.opacity = "1";
+      setTimeout(() => {
+        albumImg.src = images[index].src;
+        caption.textContent = images[index].caption;
+        shutter.style.opacity = "0";
+      }, 300);
+    }
+
+    document.getElementById("prev").addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    });
+
+    document.getElementById("next").addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    });
+
+    // Thumbnail click logic
+    const thumbs = document.querySelectorAll(".thumb");
+    thumbs.forEach((thumb, index) => {
+      thumb.addEventListener("click", () => {
+        currentIndex = index;
+        showImage(currentIndex);
+        window.scrollTo({ top: document.querySelector(".album-viewer").offsetTop - 50, behavior: "smooth" });
       });
-    });
-
-    closeBtn.addEventListener("click", () => {
-      lightbox.style.display = "none";
-    });
-
-    lightbox.addEventListener("click", e => {
-      if (e.target !== lightboxImg) lightbox.style.display = "none";
     });
   </script>
 </body>
