@@ -26,6 +26,7 @@ body.fade-out {
   max-width: 960px;
   margin: auto;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .entrance-wrapper {
@@ -33,6 +34,82 @@ body.fade-out {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+/* === Entrance Box === */
+.box {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  background: #111;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.box::before,
+.box::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 12px;
+  background: linear-gradient(45deg, #ff0057, #00fff7, #ff0057);
+  z-index: -1;
+  animation: neonRotate 4s linear infinite;
+}
+
+.box::after {
+  filter: blur(20px);
+}
+
+@keyframes neonRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.box:hover {
+  transform: scale(1.05);
+}
+
+.title {
+  text-align: center;
+  color: #fff;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.content {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 0.5s ease;
+  margin-top: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+.btn {
+  margin-top: 15px;
+  padding: 12px 24px;
+  background: #00fff7;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s;
+  width: 100%;
+}
+
+.btn:hover {
+  background: #ff0057;
+  color: #fff;
 }
 
 /* === Header === */
@@ -146,82 +223,6 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* === Entrance Box === */
-.box {
-  position: relative;
-  width: 280px;
-  background: #111;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.6);
-  overflow: hidden;
-  height: 70px;
-  cursor: pointer;
-  transition: height 0.6s ease, transform 0.3s ease;
-}
-
-.box::before,
-.box::after {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: 12px;
-  background: linear-gradient(45deg, #ff0057, #00fff7, #ff0057);
-  z-index: -1;
-  animation: neonRotate 4s linear infinite;
-}
-
-.box::after {
-  filter: blur(20px);
-}
-
-@keyframes neonRotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.box:hover {
-  height: 260px;
-  transform: scale(1.05);
-}
-
-.box:hover .content {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.title {
-  text-align: center;
-  color: #fff;
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-}
-
-.content {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 0.5s ease;
-  margin-top: 10px;
-  color: #fff;
-  text-align: center;
-}
-
-.btn {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: #00fff7;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.btn:hover {
-  background: #ff0057;
-  color: #fff;
-}
-
 /* === Gallery === */
 .gallery {
   display: grid;
@@ -310,38 +311,12 @@ footer {
   color: #ff0057;
 }
 
-#lightbox {
-  display: none;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
 #lightbox.active {
   display: flex;
   opacity: 1;
 }
 
-/* === Responsive Tweaks === */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  .box {
-    width: 90%;
-    height: auto;
-  }
-
-  .gallery img {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  nav a {
-    display: block;
-    margin: 10px 0;
-  }
-}
+/* === Album Viewer === */
 .album-viewer {
   position: relative;
   max-width: 800px;
@@ -383,6 +358,7 @@ footer {
   cursor: pointer;
   margin: 0 10px;
   transition: background 0.3s;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .controls button:hover {
@@ -390,6 +366,7 @@ footer {
   color: #fff;
 }
 
+/* === Shutter Effect === */
 .shutter-overlay {
   position: absolute;
   top: 0; left: 0;
@@ -401,6 +378,8 @@ footer {
   transition: opacity 0.3s ease;
   z-index: 10;
 }
+
+/* === Scrapbook Grid === */
 .scrapbook-grid {
   display: flex;
   flex-wrap: wrap;
@@ -423,6 +402,7 @@ footer {
   transform: scale(1.05) rotate(-2deg);
 }
 
+/* === Viewer Overlay === */
 #viewer {
   position: fixed;
   top: 0; left: 0;
@@ -463,3 +443,48 @@ footer {
 #viewer-close { top: 20px; right: 30px; }
 #viewer-prev { left: 30px; top: 50%; transform: translateY(-50%); }
 #viewer-next { right: 30px; top: 50%; transform: translateY(-50%); }
+
+/* === Responsive Tweaks === */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .box {
+    padding: 16px;
+    max-width: 90%;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .gallery img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  #viewer img {
+    max-width: 95%;
+    max-height: 70vh;
+  }
+
+  .scrapbook-grid {
+    gap: 8px;
+  }
+
+  .thumb {
+    width: 100px;
+    height: 100px;
+  }
+}
