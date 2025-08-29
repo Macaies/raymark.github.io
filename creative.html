@@ -42,14 +42,12 @@
     </footer>
   </div>
 
-  <!-- Lightbox Container -->
   <div id="lightbox">
     <span id="close">&times;</span>
     <img id="lightbox-img" src="" alt="Full View">
   </div>
 
   <script>
-    // Smooth page transition
     document.querySelectorAll("a").forEach(link => {
       if (link.href.includes("#")) return;
       link.addEventListener("click", e => {
@@ -61,8 +59,7 @@
       });
     });
 
-    // Lightbox logic
-    const galleryImages = document.querySelectorAll(".gallery img");
+    c    const galleryImages = document.querySelectorAll(".gallery img");
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const closeBtn = document.getElementById("close");

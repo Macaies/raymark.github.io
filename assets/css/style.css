@@ -1,33 +1,41 @@
-/* Fade effect for smooth transitions */
+/* === Fade Transitions === */
 body {
   opacity: 1;
   transition: opacity 0.5s ease;
-}
-body.fade-in {
-  opacity: 0;
-  animation: fadeIn 0.5s forwards;
-}
-body.fade-out {
-  opacity: 0;
-}
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-/* Background & typography */
-body {
   margin: 0;
   font-family: 'Orbitron', sans-serif;
   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
   color: #e0e0e0;
 }
 
+body.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* === Layout Containers === */
 .container {
   max-width: 960px;
   margin: auto;
   padding: 20px;
 }
 
+.entrance-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* === Header === */
 header {
   text-align: center;
   padding: 40px 0;
@@ -52,11 +60,12 @@ nav a {
   font-weight: bold;
   transition: color 0.3s ease;
 }
+
 nav a:hover {
   color: #ffffff;
 }
 
-/* Sections */
+/* === Sections === */
 section {
   margin: 40px 0;
 }
@@ -67,7 +76,7 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* Cards */
+/* === Cards === */
 .card {
   background-color: rgba(255, 255, 255, 0.05);
   padding: 20px;
@@ -76,19 +85,22 @@ h2 {
   box-shadow: 0 0 10px #00ffe7;
   transition: transform 0.3s ease;
 }
+
 .card:hover {
   transform: scale(1.02);
 }
+
 .card a {
   color: #00ffe7;
   text-decoration: underline;
 }
 
-/* Skills list */
+/* === Skills List === */
 ul {
   list-style: none;
   padding: 0;
 }
+
 ul li {
   background: rgba(255, 255, 255, 0.05);
   margin: 5px 0;
@@ -96,60 +108,27 @@ ul li {
   border-radius: 5px;
 }
 
-/* Videos & Gallery */
-video {
-  border-radius: 10px;
-  box-shadow: 0 0 20px #00ffe7;
-  margin-top: 10px;
-}
-
-.gallery {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
-}
-.gallery img {
-  width: 250px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 0 15px #00ffe7;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px #00ffe7;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9em;
-  color: #aaa;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Video wrapper */
+/* === Video Section === */
 .video-wrapper {
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
 }
-.video-wrapper video {
+
+video {
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 0 20px #00ffe7;
+  margin-top: 10px;
 }
+
 .caption {
   font-size: 0.95em;
   color: #ccc;
   margin-top: 10px;
 }
 
-/* Power BI wrapper */
+/* === Power BI Embed === */
 .bi-wrapper {
   max-width: 960px;
   margin: 0 auto;
@@ -158,7 +137,16 @@ footer {
   overflow: hidden;
 }
 
-/* Entrance Page Box */
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  color: #aaa;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* === Entrance Box === */
 .box {
   position: relative;
   width: 280px;
@@ -171,6 +159,7 @@ footer {
   cursor: pointer;
   transition: height 0.6s ease, transform 0.3s ease;
 }
+
 .box::before,
 .box::after {
   content: "";
@@ -181,22 +170,33 @@ footer {
   z-index: -1;
   animation: neonRotate 4s linear infinite;
 }
-.box::after { filter: blur(20px); }
-@keyframes neonRotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.box::after {
+  filter: blur(20px);
+}
+
+@keyframes neonRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .box:hover {
   height: 260px;
   transform: scale(1.05);
 }
+
 .box:hover .content {
   opacity: 1;
   transform: translateY(0);
 }
+
 .title {
   text-align: center;
   color: #fff;
   font-size: 1.2rem;
   letter-spacing: 2px;
 }
+
 .content {
   opacity: 0;
   transform: translateY(20px);
@@ -205,6 +205,7 @@ footer {
   color: #fff;
   text-align: center;
 }
+
 .btn {
   margin-top: 15px;
   padding: 10px 20px;
@@ -215,12 +216,37 @@ footer {
   font-weight: bold;
   transition: background 0.3s;
 }
+
 .btn:hover {
   background: #ff0057;
   color: #fff;
 }
 
-/* ===== LIGHTBOX STYLES ===== */
+/* === Gallery === */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #00ffe7;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #00ffe7;
+}
+
+/* === Lightbox === */
 #lightbox {
   display: none;
   position: fixed;
@@ -258,4 +284,26 @@ footer {
 
 #lightbox #close:hover {
   color: #ff0057;
+}
+
+/* === Responsive Tweaks === */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .box {
+    width: 90%;
+    height: auto;
+  }
+
+  .gallery img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
 }
