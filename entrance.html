@@ -2,30 +2,106 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Entrance</title>
+  <title>Raymark Bobotioc | Portfolio</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="fade-in">
+  <div class="container">
+    <header>
+      <h1>Raymark Bobotioc</h1>
+      <p class="subtitle">Data Analyst • Broadcast Engineer • ICT Innovator</p>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#video">Demo</a>
+        <a href="creative.html">Creative Corner</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-  <div class="entrance-wrapper">
-    <div class="box">
-      <div class="title">📄 MY RESUME</div>
-      <div class="content">
-        <p>Welcome to my portfolio!</p>
-        <button class="btn" onclick="goToPortfolio()">Enter</button>
+    <section id="intro">
+      <p>I build clean, scalable tools that turn raw data into stakeholder-ready insights. With 9+ years in broadcast engineering and a passion for automation, I’m bridging tech and transformation.</p>
+    </section>
+
+    <section id="projects">
+      <h2>🚀 Projects</h2>
+      <div class="card">
+        <h3>Facial Anonymiser</h3>
+        <p>Real-time face blurring using OpenCV and MediaPipe.</p>
+        <a href="https://github.com/Macaies/computer_vision/tree/master/day%201/Day%201/Day%201%20Face%20anonymizer" target="_blank">View on GitHub</a>
       </div>
-    </div>
+      <div class="card">
+        <h3>Product Review Scraper</h3>
+        <p>Scrapes and analyzes product reviews using Python.</p>
+        <a href="https://github.com/Macaies/Full-Stack-Application-using-React-JS-Nodejs-PostgreSQL" target="_blank">View on GitHub</a>
+      </div>
+      <div class="card">
+        <h3>Data Cleaning Toolkit</h3>
+        <p>Modular scripts for cleaning and preparing datasets for analysis.</p>
+        <a href="https://github.com/Macaies/Data-Clean" target="_blank">View on GitHub</a>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>🧠 Skills</h2>
+      <ul>
+        <li>Python, SQL, Git, PostgreSQL</li>
+        <li>Pandas, NumPy, Scikit-learn, OpenCV</li>
+        <li>Power BI, Databricks, BeautifulSoup</li>
+        <li>Adobe Premiere, Adobe Lightroom</li>
+        <li>Network and Devices, Photography</li>
+        <li>AutoCAD, Video Switcher, Professional Camera Handling</li>
+      </ul>
+    </section>
+
+    <section id="video">
+      <h2>🎥 Facial Anonymiser Demo</h2>
+      <div class="video-wrapper">
+        <video controls>
+          <source src="assets/videos/facial-anonymiser.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p class="caption">Real-time face detection and anonymisation using OpenCV and MediaPipe.</p>
+      </div>
+    </section>
+
+    <section id="dashboard">
+      <h2>📊 Adventure Works Dashboard</h2>
+      <p>Explore interactive sales insights across product categories, business types, and countries. Use filters to drill down by fiscal year or region.</p>
+      <div class="bi-wrapper">
+        <iframe 
+          title="Adventure Works Dashboard"
+          width="100%" height="600" 
+          src="https://app.powerbi.com/reportEmbed?reportId=3950c934-0a35-4129-ae79-cb21e72532a6&autoAuth=true&ctid=93b0ec50-fc3f-47ed-9345-9ffc6012541c" 
+          frameborder="0" allowFullScreen="true">
+        </iframe>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>📬 Contact</h2>
+      <p>Email: <a href="mailto:rbobotioc08@gmail.com">rbobotioc08@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/rmb-ece/" target="_blank">rmb-ece</a></p>
+      <p>GitHub: <a href="https://github.com/Macaies" target="_blank">Macaies</a></p>
+    </section>
+
+    <footer>
+      <p>© 2025 Raymark Bobotioc • Built with 💡 and clean code</p>
+    </footer>
   </div>
 
   <script>
-    function goToPortfolio() {
-      document.body.classList.add("fade-out");
-      setTimeout(() => {
-        window.location.href = "index.html";
-      }, 500);
-    }
+    document.querySelectorAll("a").forEach(link => {
+      if (link.href.includes("#")) return;
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+          window.location = link.href;
+        }, 500);
+      });
+    });
   </script>
-
 </body>
 </html>
