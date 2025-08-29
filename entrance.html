@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Entrance</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="fade-in">
+
+  <div class="box" onclick="goToPortfolio()">
+    <div class="title">📄 MY RESUME</div>
+    <div class="content">
+      <p>Welcome to my portfolio!</p>
+      <button class="btn">Enter</button>
+    </div>
+  </div>
+
+  <script>
+    function goToPortfolio() {
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 500); // matches fade-out duration
+    }
+  </script>
+
+</body>
+</html>

@@ -1,3 +1,20 @@
+/* Fade effect for smooth transitions */
+body {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+body.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+body.fade-out {
+  opacity: 0;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Background & typography */
 body {
   margin: 0;
   font-family: 'Orbitron', sans-serif;
@@ -28,10 +45,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-nav {
-  margin-top: 10px;
-}
-
 nav a {
   margin: 0 15px;
   color: #00ffe7;
@@ -39,11 +52,11 @@ nav a {
   font-weight: bold;
   transition: color 0.3s ease;
 }
-
 nav a:hover {
   color: #ffffff;
 }
 
+/* Sections */
 section {
   margin: 40px 0;
 }
@@ -54,6 +67,7 @@ h2 {
   margin-bottom: 20px;
 }
 
+/* Cards */
 .card {
   background-color: rgba(255, 255, 255, 0.05);
   padding: 20px;
@@ -62,21 +76,19 @@ h2 {
   box-shadow: 0 0 10px #00ffe7;
   transition: transform 0.3s ease;
 }
-
 .card:hover {
   transform: scale(1.02);
 }
-
 .card a {
   color: #00ffe7;
   text-decoration: underline;
 }
 
+/* Skills list */
 ul {
   list-style: none;
   padding: 0;
 }
-
 ul li {
   background: rgba(255, 255, 255, 0.05);
   margin: 5px 0;
@@ -84,6 +96,7 @@ ul li {
   border-radius: 5px;
 }
 
+/* Videos & Gallery */
 video {
   border-radius: 10px;
   box-shadow: 0 0 20px #00ffe7;
@@ -97,7 +110,6 @@ video {
   justify-content: center;
   margin-top: 20px;
 }
-
 .gallery img {
   width: 250px;
   height: auto;
@@ -106,12 +118,12 @@ video {
   box-shadow: 0 0 15px #00ffe7;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .gallery img:hover {
   transform: scale(1.05);
   box-shadow: 0 0 25px #00ffe7;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 20px;
@@ -120,30 +132,24 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Video wrapper */
 .video-wrapper {
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
 }
-
 .video-wrapper video {
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 0 20px #00ffe7;
 }
-
 .caption {
   font-size: 0.95em;
   color: #ccc;
   margin-top: 10px;
 }
-.bi-wrapper {
-  max-width: 960px;
-  margin: 0 auto;
-  box-shadow: 0 0 20px #00ffe7;
-  border-radius: 10px;
-  overflow: hidden;
-}
+
+/* Power BI wrapper */
 .bi-wrapper {
   max-width: 960px;
   margin: 0 auto;
@@ -152,4 +158,104 @@ footer {
   overflow: hidden;
 }
 
+/* Entrance Page Box */
+.box {
+  position: relative;
+  width: 280px;
+  background: #111;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  overflow: hidden;
+  height: 70px;
+  cursor: pointer;
+  transition: height 0.6s ease, transform 0.3s ease;
+}
+.box::before,
+.box::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 12px;
+  background: linear-gradient(45deg, #ff0057, #00fff7, #ff0057);
+  z-index: -1;
+  animation: neonRotate 4s linear infinite;
+}
+.box::after { filter: blur(20px); }
+@keyframes neonRotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+.box:hover {
+  height: 260px;
+  transform: scale(1.05);
+}
+.box:hover .content {
+  opacity: 1;
+  transform: translateY(0);
+}
+.title {
+  text-align: center;
+  color: #fff;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+.content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.5s ease;
+  margin-top: 10px;
+  color: #fff;
+  text-align: center;
+}
+.btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #00fff7;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.btn:hover {
+  background: #ff0057;
+  color: #fff;
+}
 
+/* ===== LIGHTBOX STYLES ===== */
+#lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s ease-in-out;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#lightbox img {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 25px #00ffe7;
+  object-fit: contain;
+}
+
+#lightbox #close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 10000;
+}
+
+#lightbox #close:hover {
+  color: #ff0057;
+}

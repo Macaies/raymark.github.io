@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body class="fade-in">
   <div class="container">
     <header>
       <h1>Raymark Bobotioc</h1>
@@ -49,39 +49,35 @@
         <li>Python, SQL, Git, PostgreSQL</li>
         <li>Pandas, NumPy, Scikit-learn, OpenCV</li>
         <li>Power BI, Databricks, BeautifulSoup</li>
-        <li>Adobe Premiere, Adobe Lightroom, PostgreSQL</li>
+        <li>Adobe Premiere, Adobe Lightroom</li>
         <li>Network and Devices, Photography</li>
-        <li>AutoCAD, Video Switcher, Handling Professional Camera</li>
+        <li>AutoCAD, Video Switcher, Professional Camera Handling</li>
       </ul>
     </section>
 
     <section id="video">
-        <h2>🎥 Facial Anonymiser Demo</h2>
-        <div class="video-wrapper">
-            <video controls>
-            <source src="assets/videos/facial-anonymiser.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+      <h2>🎥 Facial Anonymiser Demo</h2>
+      <div class="video-wrapper">
+        <video controls>
+          <source src="assets/videos/facial-anonymiser.mp4" type="video/mp4">
+          Your browser does not support the video tag.
         </video>
         <p class="caption">Real-time face detection and anonymisation using OpenCV and MediaPipe.</p>
-        </div>
+      </div>
     </section>
 
     <section id="dashboard">
-  <h2>📊 Adventure Works Dashboard</h2>
-  <p>Explore interactive sales insights across product categories, business types, and countries. Use filters to drill down by fiscal year or region.</p>
-
-  <div class="bi-wrapper">
-    <iframe 
-      title="Adventure Works Dashboard"
-      width="100%" 
-      height="600" 
-      src="https://app.powerbi.com/reportEmbed?reportId=3950c934-0a35-4129-ae79-cb21e72532a6&autoAuth=true&ctid=93b0ec50-fc3f-47ed-9345-9ffc6012541c" 
-      frameborder="0" 
-      allowFullScreen="true">
-    </iframe>
-  </div>
-</section>
-   
+      <h2>📊 Adventure Works Dashboard</h2>
+      <p>Explore interactive sales insights across product categories, business types, and countries. Use filters to drill down by fiscal year or region.</p>
+      <div class="bi-wrapper">
+        <iframe 
+          title="Adventure Works Dashboard"
+          width="100%" height="600" 
+          src="https://app.powerbi.com/reportEmbed?reportId=3950c934-0a35-4129-ae79-cb21e72532a6&autoAuth=true&ctid=93b0ec50-fc3f-47ed-9345-9ffc6012541c" 
+          frameborder="0" allowFullScreen="true">
+        </iframe>
+      </div>
+    </section>
 
     <section id="contact">
       <h2>📬 Contact</h2>
@@ -94,5 +90,18 @@
       <p>© 2025 Raymark Bobotioc • Built with 💡 and clean code</p>
     </footer>
   </div>
+
+  <script>
+    document.querySelectorAll("a").forEach(link => {
+      if (link.href.includes("#")) return; // skip internal anchors
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+          window.location = link.href;
+        }, 500);
+      });
+    });
+  </script>
 </body>
 </html>

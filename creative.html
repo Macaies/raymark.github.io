@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body class="fade-in">
   <div class="container">
     <header>
       <h1>Creative Corner</h1>
@@ -41,5 +41,46 @@
       <p>© 2025 Raymark Bobotioc • Creativity meets code</p>
     </footer>
   </div>
+
+  <!-- Lightbox Container -->
+  <div id="lightbox">
+    <span id="close">&times;</span>
+    <img id="lightbox-img" src="" alt="Full View">
+  </div>
+
+  <script>
+    // Smooth page transition
+    document.querySelectorAll("a").forEach(link => {
+      if (link.href.includes("#")) return;
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+          window.location = link.href;
+        }, 500);
+      });
+    });
+
+    // Lightbox logic
+    const galleryImages = document.querySelectorAll(".gallery img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.getElementById("close");
+
+    galleryImages.forEach(img => {
+      img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+
+    lightbox.addEventListener("click", e => {
+      if (e.target !== lightboxImg) lightbox.style.display = "none";
+    });
+  </script>
 </body>
 </html>
