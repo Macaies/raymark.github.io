@@ -10,7 +10,7 @@
   <div class="container">
     <header>
       <h1>Raymark Bobotioc</h1>
-      <p class="subtitle">Data Analyst • Broadcast Engineer • ICT Innovator</p>
+      <p class="subtitle">Business Analyst • Data Analyst • Broadcast Engineer • ICT Innovator • Photography</p>
       <nav>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
@@ -21,25 +21,74 @@
     </header>
 
     <section id="intro">
-      <p>I build clean, scalable tools that turn raw data into stakeholder-ready insights. With 9+ years in broadcast engineering and a passion for automation, I’m bridging tech and transformation.</p>
+      <p>
+        I design end-to-end data and automation systems – from R-based ETL pipelines and n8n workflows
+        to production-style council web apps. Right now I’m focused on three flagship projects:
+        a self-assessable land-permit portal for Sunshine Coast Council, a Racing QLD sectionals
+        analytics pipeline, and an AI-powered crypto alert agent.
+      </p>
     </section>
 
     <section id="projects">
-      <h2>🚀 Projects</h2>
+      <h2>🚀 Featured Systems & Data Projects</h2>
+
       <div class="card">
-        <h3>Facial Anonymiser</h3>
-        <p>Real-time face blurring using OpenCV and MediaPipe.</p>
-        <a href="https://github.com/Macaies/computer_vision/tree/master/day%201/Day%201/Day%201%20Face%20anonymizer" target="_blank">View on GitHub</a>
+        <h3>Self-Assessable Land Permit (Sunshine Coast Council)</h3>
+        <p>
+          Proof-of-concept web portal that guides applicants through a self-assessment decision tree
+          to either auto-issue a QR-code permit or route their event for manual review.
+        </p>
+        <ul>
+          <li>Conditional logic questions based on event type (wedding, filming, performance, etc.).</li>
+          <li>Generates clean, structured application data ready for council systems and analytics.</li>
+        </ul>
+        <p>
+          <a href="https://ssc.rmbn8n.cfd" target="_blank">🌐 View live mock-up</a>
+        </p>
+        <!-- Optional: place your decision tree image at assets/images/salp-decision-tree.jpg -->
+        <!-- <img src="assets/images/salp-decision-tree.jpg"
+              alt="Self-assessable decision tree for Sunshine Coast Council permits"
+              style="max-width:100%;border-radius:8px;margin-top:10px;"> -->
       </div>
+
       <div class="card">
-        <h3>Product Review Scraper</h3>
-        <p>Scrapes and analyzes product reviews using Python.</p>
-        <a href="https://github.com/Macaies/Full-Stack-Application-using-React-JS-Nodejs-PostgreSQL" target="_blank">View on GitHub</a>
+        <h3>Racing QLD Sectionals – Data Pipeline & Analytics</h3>
+        <p>
+          End-to-end R pipeline (RStudio + Shiny) that downloads Racing QLD sectional data,
+          cleans and normalises race/horse features, and builds a historical dataset for modelling.
+        </p>
+        <ul>
+          <li>Automated ZIP/XML download → cleaning → feature engineering → combined CSV.</li>
+          <li>Shiny UI (in progress) with date filters, ETL “Run” button, and dataset preview/export.</li>
+        </ul>
+        <p>
+          <!-- Replace # with your repo link once pushed -->
+          <a href="#" target="_blank">📂 R code & pipeline (coming soon to GitHub)</a>
+        </p>
       </div>
+
       <div class="card">
-        <h3>Data Cleaning Toolkit</h3>
-        <p>Modular scripts for cleaning and preparing datasets for analysis.</p>
-        <a href="https://github.com/Macaies/Data-Clean" target="_blank">View on GitHub</a>
+        <h3>Crypto Market & News Alerts – n8n + AI Agent</h3>
+        <p>
+          n8n workflow that pulls Binance market data and sentiment on a schedule, computes custom indicators,
+          and lets an AI agent summarise the signals before sending updates to WhatsApp and Telegram.
+        </p>
+        <ul>
+          <li>Schedule + HTTP nodes → JavaScript feature builder → AI Agent (OpenAI Chat Model).</li>
+          <li>Delivers concise alerts to chat apps; extendable to log history for deeper analysis.</li>
+        </ul>
+        <p>
+          <!-- Private instance: describe in case study or link to a GitHub readme with screenshots -->
+          <a href="https://n8ncloud.rmbn8n.cfd" target="_blank">🤖 Automation (private n8n instance)</a>
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>More Experiments & Earlier Projects</h3>
+        <p>
+          Computer-vision prototypes (facial anonymiser), data-cleaning utilities, and BI dashboards.
+        </p>
+        <a href="https://github.com/Macaies" target="_blank">See more on GitHub</a>
       </div>
     </section>
 
@@ -48,6 +97,8 @@
       <ul>
         <li>Python, SQL, Git, PostgreSQL</li>
         <li>Pandas, NumPy, Scikit-learn, OpenCV</li>
+        <li>R, Shiny, n8n</li>
+        <li>Collaboration Tools (Slack, Microsoft Teams)</li>
         <li>Power BI, Databricks, BeautifulSoup</li>
         <li>Adobe Premiere, Adobe Lightroom</li>
         <li>Network and Devices, Photography</li>
@@ -73,7 +124,7 @@
         <iframe 
           title="Adventure Works Dashboard"
           width="100%" height="600" 
-          src="https://app.powerbi.com/reportEmbed?reportId=3950c934-0a35-4129-ae79-cb21e72532a6&autoAuth=true&ctid=93b0ec50-fc3f-47ed-9345-9ffc6012541c" 
+          src="https://app.powerbi.com/view?r=eyJrIjoiMTVhOWQyYzAtM2QxYy00ZGEwLTgzNTktYWNmZDU4ZjQ4M2FjIiwidCI6ImQxNmM2ZTQ1LWI2ZmUtNGIyYy05MzU2LTc0MTc5NDQ2ZjdmOSIsImMiOjEwfQ%3D%3D" 
           frameborder="0" allowFullScreen="true">
         </iframe>
       </div>
