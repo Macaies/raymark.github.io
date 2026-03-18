@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Raymark Bobotioc | Entrance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --cyan: #00ffe7; --pink: #ff0057; --dark: #060d12; }
+    body { background: var(--dark); color: #e0e0e0; font-family: 'Share Tech Mono', monospace; height: 100vh; overflow: hidden; cursor: pointer; }
+    #cursor { position:fixed;width:10px;height:10px;background:var(--cyan);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen;transition:width .2s,height .2s,background .2s; }
+    #cursor-ring { position:fixed;width:32px;height:32px;border:1px solid rgba(0,255,231,0.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%); }
+    #bg-canvas { position:fixed;inset:0;z-index:0; }
+    body::after { content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.06) 2px,rgba(0,0,0,0.06) 4px);pointer-events:none;z-index:5; }
+
+    .entrance-wrapper { position:relative;z-index:10;display:flex;flex-direction:column;justify-content:center;align-items:center;height:100vh;padding:20px;gap:0; }
+
+    .hero-name { font-family:'Orbitron',sans-serif;font-size:clamp(1.6rem,5.5vw,4.5rem);font-weight:900;color:var(--cyan);text-shadow:0 0 20px var(--cyan),0 0 60px rgba(0,255,231,0.3);letter-spacing:4px;text-align:center;animation:glitch 5s infinite;position:relative; }
+    .hero-name::before,.hero-name::after { content:attr(data-text);position:absolute;inset:0;text-align:center; }
+    .hero-name::before { color:var(--pink);animation:glitch-1 5s infinite;clip-path:polygon(0 30%,100% 30%,100% 50%,0 50%); }
+    .hero-name::after { color:#00fff7;animation:glitch-2 5s infinite;clip-path:polygon(0 65%,100% 65%,100% 80%,0 80%); }
+    @keyframes glitch{0%,90%,100%{transform:translate(0)}92%{transform:translate(-2px,1px)}94%{transform:translate(2px,-1px)}96%{transform:translate(-1px,2px)}}
+    @keyframes glitch-1{0%,90%,100%{transform:translate(0);opacity:0}91%{transform:translate(-3px,0);opacity:.7}93%{transform:translate(3px,0);opacity:.7}95%{opacity:0}}
+    @keyframes glitch-2{0%,88%,100%{transform:translate(0);opacity:0}90%{transform:translate(3px,1px);opacity:.5}92%{transform:translate(-3px,-1px);opacity:.5}94%{opacity:0}}
+
+    .hero-role { font-size:clamp(.6rem,1.5vw,.85rem);letter-spacing:4px;color:rgba(0,255,231,.55);text-transform:uppercase;margin-top:8px;text-align:center; }
+
+    .terminal { margin-top:28px;width:min(540px,90vw);background:rgba(0,8,18,.88);border:1px solid rgba(0,255,231,.2);border-radius:10px;overflow:hidden;box-shadow:0 0 50px rgba(0,255,231,.07);backdrop-filter:blur(12px); }
+    .terminal-bar { background:rgba(0,255,231,.06);border-bottom:1px solid rgba(0,255,231,.12);padding:9px 16px;display:flex;align-items:center;gap:7px; }
+    .t-dot{width:10px;height:10px;border-radius:50%} .t-dot:nth-child(1){background:#ff5f57} .t-dot:nth-child(2){background:#febc2e} .t-dot:nth-child(3){background:#28c840}
+    .t-title{margin-left:8px;font-size:11px;color:rgba(255,255,255,.32);letter-spacing:1px}
+    .terminal-body{padding:16px 20px;min-height:120px;font-size:12px;line-height:1.9}
+    .t-prompt{color:var(--cyan)} .t-output{color:rgba(0,255,231,.7);padding-left:10px}
+    .t-cursor{display:inline-block;width:7px;height:12px;background:var(--cyan);vertical-align:middle;animation:blink 1s step-end infinite}
+    @keyframes blink{50%{opacity:0}}
+
+    .btn-row { display:flex;gap:10px;margin-top:26px;flex-wrap:wrap;justify-content:center; }
+    .enter-btn { background:transparent;border:none;cursor:pointer;padding:0;outline:none; }
+    .enter-inner { position:relative;padding:12px 40px;background:rgba(0,255,231,.05);border:1px solid var(--cyan);border-radius:6px;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;letter-spacing:4px;color:var(--cyan);text-transform:uppercase;transition:all .3s;overflow:hidden; }
+    .enter-inner::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(0,255,231,.12),transparent);transform:translateX(-100%);transition:transform .5s}
+    .enter-btn:hover .enter-inner{background:rgba(0,255,231,.12);box-shadow:0 0 28px rgba(0,255,231,.3);transform:scale(1.04)}
+    .enter-btn:hover .enter-inner::before{transform:translateX(100%)}
+    .corner{position:absolute;width:7px;height:7px;border-color:var(--pink);border-style:solid}
+    .c-tl{top:-1px;left:-1px;border-width:2px 0 0 2px} .c-tr{top:-1px;right:-1px;border-width:2px 2px 0 0}
+    .c-bl{bottom:-1px;left:-1px;border-width:0 0 2px 2px} .c-br{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+
+    .pill-link { display:inline-flex;align-items:center;padding:11px 22px;border:1px solid rgba(0,255,231,.25);border-radius:6px;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;color:rgba(0,255,231,.7);text-decoration:none;text-transform:uppercase;transition:all .25s;cursor:pointer; }
+    .pill-link:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(0,255,231,.07)}
+
+    .hint { margin-top:14px;font-size:10px;letter-spacing:2px;color:rgba(0,255,231,.25);text-align:center; }
+    .version-tag{position:fixed;bottom:18px;right:22px;font-size:10px;color:rgba(0,255,231,.18);letter-spacing:2px;z-index:10}
+
+    #page-transition{position:fixed;inset:0;background:var(--cyan);z-index:9999;transform:scaleY(0);transform-origin:bottom;pointer-events:none}
+    #page-transition.go{animation:wipe .55s cubic-bezier(.76,0,.24,1) forwards}
+    @keyframes wipe{0%{transform:scaleY(0);transform-origin:bottom}50%{transform:scaleY(1);transform-origin:bottom}51%{transform-origin:top}100%{transform:scaleY(0);transform-origin:top}}
+
+    .fade-up{opacity:0;transform:translateY(20px);animation:fadeUp .7s ease forwards}
+    .fade-up:nth-child(1){animation-delay:.2s} .fade-up:nth-child(2){animation-delay:.4s} .fade-up:nth-child(3){animation-delay:.65s} .fade-up:nth-child(4){animation-delay:.85s} .fade-up:nth-child(5){animation-delay:1s}
+    @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+    /* Click fix */
+    a, button, input, label { position:relative; z-index:10; pointer-events:all !important; }
+  </style>
+</head>
+<body>
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+  <canvas id="bg-canvas"></canvas>
+  <div id="page-transition"></div>
+
+  <div class="entrance-wrapper">
+    <div class="hero-name fade-up" data-text="RAYMARK BOBOTIOC">RAYMARK BOBOTIOC</div>
+    <div class="hero-role fade-up">Business Analyst · Data Analyst · Broadcast Engineer · ICT Innovator</div>
+
+    <div class="terminal fade-up">
+      <div class="terminal-bar">
+        <div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div>
+        <span class="t-title">raymark@portfolio ~ zsh</span>
+      </div>
+      <div class="terminal-body" id="termBody"></div>
+    </div>
+
+    <div class="btn-row fade-up">
+      <button class="enter-btn" onclick="enterPortfolio()">
+        <div class="enter-inner">
+          <span class="corner c-tl"></span><span class="corner c-tr"></span>
+          <span class="corner c-bl"></span><span class="corner c-br"></span>
+          Enter Portfolio
+        </div>
+      </button>
+      <a class="pill-link" href="https://www.linkedin.com/in/rmb-ece/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="pill-link" href="https://github.com/Macaies" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="hint fade-up">Tip: sticky navigation lets you jump between sections</div>
+  </div>
+  <div class="version-tag">v2.0 · 2025</div>
+
+  <script>
+    const cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+    (function ar(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ar);})();
+    document.querySelectorAll('button,a').forEach(el=>{
+      el.addEventListener('mouseenter',()=>{cursor.style.width='18px';cursor.style.height='18px';cursor.style.background='#ff0057';ring.style.width='44px';ring.style.height='44px';});
+      el.addEventListener('mouseleave',()=>{cursor.style.width='10px';cursor.style.height='10px';cursor.style.background='#00ffe7';ring.style.width='32px';ring.style.height='32px';});
+    });
+
+    const cv=document.getElementById('bg-canvas'),c=cv.getContext('2d');
+    let W,H,pts=[];
+    function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight;}
+    resize();window.addEventListener('resize',resize);
+    for(let i=0;i<120;i++) pts.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vy:-(0.14+Math.random()*.38),vx:(Math.random()-.5)*.14,s:.4+Math.random()*1.4,a:.07+Math.random()*.4,col:Math.random()>.85?'#ff0057':'#00ffe7'});
+    function bgLoop(){
+      c.fillStyle='rgba(6,13,18,0.25)';c.fillRect(0,0,W,H);
+      c.strokeStyle='rgba(0,255,231,0.025)';c.lineWidth=1;
+      for(let x=0;x<W;x+=60){c.beginPath();c.moveTo(x,0);c.lineTo(x,H);c.stroke();}
+      for(let y=0;y<H;y+=60){c.beginPath();c.moveTo(0,y);c.lineTo(W,y);c.stroke();}
+      pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.y<-5){p.y=H+5;p.x=Math.random()*W;}c.save();c.globalAlpha=p.a;c.fillStyle=p.col;c.shadowColor=p.col;c.shadowBlur=5;c.beginPath();c.arc(p.x,p.y,p.s,0,Math.PI*2);c.fill();c.restore();});
+      requestAnimationFrame(bgLoop);
+    }
+    bgLoop();
+
+    const tb=document.getElementById('termBody');
+    const lines=[
+      {t:'prompt',s:'$ whoami'},
+      {t:'output',s:'raymark_bobotioc  ·  data_analyst  |  business_analyst  |  broadcast_engineer'},
+      {t:'prompt',s:'$ ls ./projects/'},
+      {t:'output',s:'hr-analytics  land-permit-portal  racing-qld-pipeline  crypto-n8n-agent'},
+      {t:'prompt',s:'$ cat ./about.txt'},
+      {t:'output',s:'9+ yrs broadcast · ETL pipelines · automation · AI agents · data dashboards'},
+    ];
+    let li=0,ci=0,html='';
+    function type(){
+      if(li>=lines.length){html+=`<span class="t-cursor"></span>`;tb.innerHTML=html;return;}
+      const ln=lines[li],cls=ln.t==='prompt'?'t-prompt':'t-output';
+      if(ci===0)html+=`<div class="${cls}">`;
+      if(ci<ln.s.length){html+=ln.s[ci++];tb.innerHTML=html+`<span class="t-cursor"></span></div>`;setTimeout(type,ln.t==='prompt'?52:16);}
+      else{html+='</div>';ci=0;li++;setTimeout(type,ln.t==='prompt'?350:160);}
+    }
+    setTimeout(type,700);
+
+    function enterPortfolio(){
+      document.getElementById('page-transition').classList.add('go');
+      setTimeout(()=>{window.location.href='portfolio.html';},380);
+    }
+  </script>
+</body>
+</html>
