@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Broadcast Experience | Raymark Bobotioc</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Broadcast Experience | Raymark Bobotioc</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet"/>
+<style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     :root{--cyan:#00ffe7;--pink:#ff0057;--dark:#060d12;--border:rgba(0,255,231,0.14);--text:#c8d8e8;--muted:rgba(200,216,232,0.5);}
     html{scroll-behavior:smooth;}
@@ -77,318 +78,282 @@
   </style>
 </head>
 <body>
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
-  <canvas id="bg-canvas"></canvas>
-  <div class="bg-glow"></div>
-  <div id="page-transition"></div>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<canvas id="bg-canvas"></canvas>
+<div class="bg-glow"></div>
+<div id="page-transition"></div>
+<!-- Lightbox -->
+<div aria-hidden="true" id="lightbox">
+<button id="lb-close">✕</button>
+<img alt="" id="lightbox-img"/>
+</div>
+<header>
+<div class="nav-inner">
+<a class="nav-logo" href="portfolio.html" onclick="navTo(event,'portfolio.html')">← RMB</a>
+<nav>
+<a href="index.html" onclick="navTo(event,'index.html')">Entrance</a>
+<a href="portfolio.html" onclick="navTo(event,'portfolio.html')">Portfolio</a>
+<a href="creative.html" onclick="navTo(event,'creative.html')">Creative</a>
+<a aria-current="page" href="broadcast.html">Broadcast</a>
+</nav>
+</div>
+</header>
+<div class="container">
+<div class="page-hero">
+<h1 class="reveal">Broadcast Systems<br/>Engineering Experience</h1>
+<p class="reveal">Selected AV and broadcast system integration projects across OB/ENG vans, MCR environments, studios, institutional AV spaces, commissioning, troubleshooting, training, demos, and live-event support — highlighting design, BOM awareness, implementation, validation, collaboration, and operational reliability.</p>
+</div>
+<!-- Company Profile -->
+<div class="section-header reveal"><span class="section-num">01</span><span class="section-title-sm">Company Profile</span><div class="section-line"></div></div>
+<div class="event reveal">
+<h2>Solid Video Corporation (SVC)</h2>
+<p class="event-desc">Solid Video Corporation (SVC) is a Philippine-based broadcast and AV systems integrator delivering professional video infrastructure, control room systems, mobile broadcast units, and institutional AV deployments.</p>
+<p class="event-desc">SVC provides turnkey systems including Outside Broadcast (OB) Vans, Electronic News Gathering (ENG) Vans, Master Control Room (MCR) integration, studio configuration, digital intercom systems, signal distribution, and operational workflows.</p>
+<p class="event-desc">The company supports government institutions, national broadcasters, enterprise clients, and major live events, with a strong focus on system reliability, integration precision, documentation, and operational continuity.</p>
+</div>
+<!-- Career Highlights -->
+<div class="section-header reveal"><span class="section-num">02</span><span class="section-title-sm">Career Highlights</span><div class="section-line"></div></div>
+<div class="event reveal">
+<h2>System / Technical Support Engineer @ SVC</h2>
+<p class="event-desc">Former System / Technical Support Engineer specialising in end-to-end AV and broadcast system integration, covering design support, BOM planning, installation, implementation, commissioning, troubleshooting, documentation, collaboration, and end-user training.</p>
+<ul class="event-desc"><li><strong>AV design &amp; solution support:</strong> Contributed to AV and broadcast system designs aligned with client requirements, site conditions, and operational workflows.</li><li><strong>BOM &amp; equipment planning:</strong> Supported equipment selection, BOM review, and system configuration to ensure practical and scalable deployment.</li><li><strong>End-to-end integration:</strong> Delivered OB/ENG vans, studio systems, control-room workflows, and institutional AV deployments from setup to handover.</li><li><strong>Signal flow engineering:</strong> Designed, mapped, and validated video, audio, intercom, routing, and monitoring signal paths.</li><li><strong>Implementation &amp; commissioning:</strong> Performed installation, rack integration, structured cabling, configuration, calibration, and operational readiness checks.</li><li><strong>Documentation &amp; handover:</strong> Produced practical SOPs, user guides, signal-flow references, and training materials for operators and clients.</li><li><strong>Collaboration &amp; coordination:</strong> Worked with engineers, project teams, vendors, clients, and end users to align technical delivery and project outcomes.</li><li><strong>Troubleshooting under pressure:</strong> Performed rapid root-cause isolation across video, audio, routing, monitoring, and connectivity systems in live environments.</li></ul>
+</div>
+<!-- Filters -->
+<div class="section-header reveal"><span class="section-num">03</span><span class="section-title-sm">Project Gallery</span><div class="section-line"></div></div>
+<div class="filters reveal">
+<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="events">Events</button>
+<button class="filter-btn" data-filter="commissioning">Commissioning</button>
+<button class="filter-btn" data-filter="demos">Demos</button>
+<button class="filter-btn" data-filter="training">Training</button>
+<button class="filter-btn" data-filter="troubleshooting">Troubleshooting</button>
+<button class="filter-btn" data-filter="vehicles">OB/ENG Vans</button>
+</div>
+<div id="gallery">
+<section class="event reveal" data-category="events">
+<h2>APEC – International Media Operations</h2><ul class="event-desc"><li>Supported large-scale international broadcast operations, ensuring system readiness, signal integrity, and operational stability.</li><li>Performed pre-event validation of signal routing, device mapping, and infrastructure setup.</li><li>Monitored video, audio, and communication systems during live operations.</li><li>Executed rapid fault isolation to prevent broadcast disruption.</li><li>Collaborated with production teams, vendors, and stakeholders to align workflows and maintain on-schedule delivery.</li></ul>
 
-  <!-- Lightbox -->
-  <div id="lightbox" aria-hidden="true">
-    <button id="lb-close">✕</button>
-    <img id="lightbox-img" alt="">
-  </div>
+<div class="photo-grid">
+<img alt="APEC 1" loading="lazy" src="assets/images/broadcast/apec1.JPG"/>
+<img alt="APEC 2" loading="lazy" src="assets/images/broadcast/apec2.JPG"/>
+<img alt="APEC 3" loading="lazy" src="assets/images/broadcast/apec3.JPG"/>
+<img alt="APEC 4" loading="lazy" src="assets/images/broadcast/apec4.JPG"/>
+<img alt="APEC 5" loading="lazy" src="assets/images/broadcast/apec5.JPG"/>
+<img alt="APEC 6" loading="lazy" src="assets/images/broadcast/apec6.jpg"/>
+</div>
+</section>
+<section class="event reveal" data-category="events">
+<h2>ASEAN – Event Broadcast Support</h2><ul class="event-desc"><li>Delivered technical support for high-visibility live broadcast and AV production environments.</li><li>Conducted system validation, signal verification, and real-time monitoring before and during event operations.</li><li>Maintained stable signal flow across broadcast, AV, and communication systems.</li><li>Performed rapid troubleshooting under strict event timelines to minimise disruption.</li><li>Coordinated with production and technical teams to support smooth live-event execution.</li></ul>
 
-  <header>
-    <div class="nav-inner">
-      <a href="portfolio.html" class="nav-logo" onclick="navTo(event,'portfolio.html')">← RMB</a>
-      <nav>
-        <a href="index.html" onclick="navTo(event,'index.html')">Entrance</a>
-        <a href="portfolio.html" onclick="navTo(event,'portfolio.html')">Portfolio</a>
-        <a href="creative.html" onclick="navTo(event,'creative.html')">Creative</a>
-        <a href="broadcast.html" aria-current="page">Broadcast</a>
-      </nav>
-    </div>
-  </header>
+<div class="photo-grid">
+<img alt="ASEAN 1" loading="lazy" src="assets/images/broadcast/ASEAN1.jpg"/>
+<img alt="ASEAN 2" loading="lazy" src="assets/images/broadcast/ASEAN2.jpg"/>
+<img alt="ASEAN 3" loading="lazy" src="assets/images/broadcast/ASEAN3.jpg"/>
+<img alt="ASEAN 4" loading="lazy" src="assets/images/broadcast/ASEAN4.jpg"/>
+<img alt="ASEAN 5" loading="lazy" src="assets/images/broadcast/ASEAN5.jpg"/>
+</div>
+</section>
+<section class="event reveal" data-category="events">
+<h2>Bangko Sentral ng Pilipinas (BSP) – Integration Support</h2><ul class="event-desc"><li>Supported AV and broadcast system integration for institutional communication and presentation environments.</li><li>Reviewed and validated system design, documentation, and integration workflows prior to deployment.</li><li>Assisted with installation, configuration, commissioning, and functional testing.</li><li>Verified end-to-end system operation across AV, routing, and control workflows.</li><li>Supported operational handover and ensured readiness for client use.</li></ul>
 
-  <div class="container">
-    <div class="page-hero">
-      <h1 class="reveal">Broadcast Systems<br>Engineering Experience</h1>
-      <p class="reveal">Selected field work and system integration projects — OB Vans, ENG Vans, MCR routing, intercom, troubleshooting, commissioning, training, demos, and event support from my broadcast engineering career.</p>
-    </div>
+<div class="photo-grid">
+<img alt="BSP 1" loading="lazy" src="assets/images/broadcast/BSP2.jpg"/>
+<img alt="BSP 2" loading="lazy" src="assets/images/broadcast/BSP3.jpg"/>
+<img alt="BSP 3" loading="lazy" src="assets/images/broadcast/BSP4.JPG"/>
+<img alt="BSP 4" loading="lazy" src="assets/images/broadcast/BSP5.JPG"/>
+<img alt="BSP 5" loading="lazy" src="assets/images/broadcast/BSP6.jpg"/>
+<img alt="BSP 6" loading="lazy" src="assets/images/broadcast/BSP7.jpg"/>
+<img alt="BSP 7" loading="lazy" src="assets/images/broadcast/BSP8.jpg"/>
+</div>
+</section>
+<section class="event reveal" data-category="vehicles">
+<h2>Outside Broadcast (OB) Van – Multi-Camera Integration</h2><ul class="event-desc"><li>Supported the integration of multi-camera OB Van systems for live field production.</li><li>Verified SDI signal routing, device mapping, monitoring workflows, and production signal paths.</li><li>Configured intercom systems, audio chains, graphics devices, and monitoring infrastructure.</li><li>Assisted with cabling, rack integration, equipment layout, and system deployment.</li><li>Performed system testing and validation to ensure stable operation in field conditions.</li></ul>
 
-    <!-- Company Profile -->
-    <div class="section-header reveal"><span class="section-num">01</span><span class="section-title-sm">Company Profile</span><div class="section-line"></div></div>
-    <div class="event reveal">
-      <h2>Solid Video Corporation (SVC)</h2>
-      <p class="event-desc">Solid Video Corporation (SVC) is a Philippine-based broadcast systems integrator specializing in professional video infrastructure, control room systems, mobile broadcast units, and institutional AV deployments.</p>
-      <p class="event-desc">SVC delivers turnkey broadcast solutions including Outside Broadcast (OB) Vans, Electronic News Gathering (ENG) Vans, Master Control Room (MCR) integration, studio configuration, digital intercom systems, and signal distribution workflows.</p>
-      <p class="event-desc">The company supports government institutions, national broadcasters, and major live events, focusing on system reliability, integration precision, and operational continuity.</p>
-    </div>
+<div class="photo-grid">
+<img alt="OB Van 1" loading="lazy" src="assets/images/broadcast/OB_VAN1.jpg"/>
+<img alt="OB Van 2" loading="lazy" src="assets/images/broadcast/OB_VAN2.jpg"/>
+<img alt="OB Van 3" loading="lazy" src="assets/images/broadcast/OB_VAN3.jpg"/>
+<img alt="OB Van 4" loading="lazy" src="assets/images/broadcast/OB_VAN4.jpg"/>
+<img alt="OB Van 5" loading="lazy" src="assets/images/broadcast/OB_VAN5.jpg"/>
+<img alt="OB Van 6" loading="lazy" src="assets/images/broadcast/OB_VAN6.jpg"/>
+</div>
+</section>
+<section class="event reveal" data-category="vehicles">
+<h2>Electronic News Gathering (ENG) Van – Field Broadcast Setup</h2><ul class="event-desc"><li>Participated in mobile ENG system integration for field broadcast and rapid news coverage.</li><li>Supported installation, cabling, signal routing, and system configuration across video and communication systems.</li><li>Performed signal integrity checks, routing verification, and workflow validation.</li><li>Prepared systems for fast deployment, stable transmission, and field operational readiness.</li></ul>
 
-    <!-- Career Highlights -->
-    <div class="section-header reveal"><span class="section-num">02</span><span class="section-title-sm">Career Highlights</span><div class="section-line"></div></div>
-    <div class="event reveal">
-      <h2>System / Technical Support Engineer @ SVC</h2>
-      <p class="event-desc">Former System / Technical Support Engineer at Solid Video Corporation (Philippines), specializing in broadcast integration, live operations support, commissioning, troubleshooting, and end-user training.</p>
-      <ul class="event-desc">
-        <li><strong>End-to-end deployments:</strong> Delivered OB/ENG vans, studio configurations, and site integrations from setup to handover.</li>
-        <li><strong>Mission-critical events:</strong> Supported high-pressure live environments where stability and speed were essential.</li>
-        <li><strong>Standards-driven signal workflows:</strong> Applied SDI infrastructure practices and structured cabling to reduce downtime.</li>
-        <li><strong>System validation:</strong> Performed operational readiness checks and signal verification.</li>
-        <li><strong>Routing &amp; monitoring:</strong> Supported control-room workflows and real-time operational changes.</li>
-        <li><strong>Comms upgrades:</strong> Deployed and configured communication/intercom environments for reliable coordination.</li>
-        <li><strong>Training &amp; documentation:</strong> Delivered end-user training, SOPs, and practical troubleshooting guides.</li>
-        <li><strong>Troubleshooting under pressure:</strong> Fast root-cause isolation across video/audio/routing/monitoring/connectivity.</li>
-      </ul>
-    </div>
+<div class="photo-grid">
+<img alt="ENG 1" loading="lazy" src="assets/images/broadcast/eng1.jpg"/>
+<img alt="ENG 2" loading="lazy" src="assets/images/broadcast/eng2.jpeg"/>
+<img alt="ENG 3" loading="lazy" src="assets/images/broadcast/eng3.jpeg"/>
+<img alt="ENG 4" loading="lazy" src="assets/images/broadcast/eng4.jpeg"/>
+<img alt="ENG 5" loading="lazy" src="assets/images/broadcast/eng5.jpg"/>
+<img alt="ENG 6" loading="lazy" src="assets/images/broadcast/eng6.jpg"/>
+<img alt="ENG 7" loading="lazy" src="assets/images/broadcast/eng7.jpg"/>
+<img alt="ENG 8" loading="lazy" src="assets/images/broadcast/eng8.jpg"/>
+<img alt="ENG 9" loading="lazy" src="assets/images/broadcast/eng9.jpg"/>
+<img alt="ENG 10" loading="lazy" src="assets/images/broadcast/eng10.jpg"/>
+<img alt="ENG 11" loading="lazy" src="assets/images/broadcast/eng11.jpg"/>
+<img alt="ENG 12" loading="lazy" src="assets/images/broadcast/eng12.jpg"/>
+</div>
+</section>
+<section class="event reveal" data-category="commissioning">
+<h2>St. Jude – System Commissioning &amp; Validation</h2><ul class="event-desc"><li>Commissioned AV and live-streaming systems for event and worship coverage.</li><li>Installed and configured PTZ cameras, streaming equipment, and supporting AV infrastructure.</li><li>Performed system calibration, signal validation, and functional testing.</li><li>Troubleshot setup issues and verified end-to-end operational readiness.</li><li>Delivered user training to support reliable ongoing operation.</li></ul>
 
-    <!-- Filters -->
-    <div class="section-header reveal"><span class="section-num">03</span><span class="section-title-sm">Project Gallery</span><div class="section-line"></div></div>
-    <div class="filters reveal">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="events">Events</button>
-      <button class="filter-btn" data-filter="commissioning">Commissioning</button>
-      <button class="filter-btn" data-filter="demos">Demos</button>
-      <button class="filter-btn" data-filter="training">Training</button>
-      <button class="filter-btn" data-filter="troubleshooting">Troubleshooting</button>
-      <button class="filter-btn" data-filter="vehicles">OB/ENG Vans</button>
-    </div>
+<div class="photo-grid">
+<img alt="St Jude 1" loading="lazy" src="assets/images/broadcast/st_jude1.JPG"/>
+<img alt="St Jude 2" loading="lazy" src="assets/images/broadcast/st_jude2.JPG"/>
+<img alt="St Jude 3" loading="lazy" src="assets/images/broadcast/st_jude3.JPG"/>
+<img alt="St Jude 4" loading="lazy" src="assets/images/broadcast/st_jude4.JPG"/>
+<img alt="St Jude 5" loading="lazy" src="assets/images/broadcast/st_jude5.JPG"/>
+<img alt="St Jude 6" loading="lazy" src="assets/images/broadcast/st_jude6.JPG"/>
+</div>
+</section>
+<section class="event reveal" data-category="events">
+<h2>Collaboration – Sony Cinema</h2><ul class="event-desc"><li>Provided technical support for a professional camera showcase and live demonstration environment.</li><li>Configured camera systems, signal paths, monitoring setups, and demonstration workflows.</li><li>Ensured optimal video output, lighting conditions, and system stability during the event.</li><li>Supported technical discussions with directors, production teams, and industry attendees.</li><li>Assisted with practical camera operation guidance and on-site troubleshooting.</li></ul>
 
-    <div id="gallery">
-      <section class="event reveal" data-category="events">
-        <h2>APEC – International Media Operations</h2>
-        <p class="event-desc">Provided technical support for broadcast distribution during an international event, performing system readiness checks, signal validation, and real-time issue isolation. Worked closely with production teams, lighting crews, vendors, and client representatives to align workflows and ensure smooth, on-schedule operations across all broadcast touchpoints.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/apec1.JPG" alt="APEC 1" loading="lazy">
-          <img src="assets/images/broadcast/apec2.JPG" alt="APEC 2" loading="lazy">
-          <img src="assets/images/broadcast/apec3.JPG" alt="APEC 3" loading="lazy">
-          <img src="assets/images/broadcast/apec4.JPG" alt="APEC 4" loading="lazy">
-          <img src="assets/images/broadcast/apec5.JPG" alt="APEC 5" loading="lazy">
-          <img src="assets/images/broadcast/apec6.jpg" alt="APEC 6" loading="lazy">
-        </div>
-      </section>
+<div class="photo-grid">
+<img alt="Sony Cinema 1" loading="lazy" src="assets/images/broadcast/Collaboration_sony_cinema1.jpeg"/>
+<img alt="Sony Cinema 2" loading="lazy" src="assets/images/broadcast/Collaboration_sony_cinema2.jpeg"/>
+<img alt="Sony Cinema 3" loading="lazy" src="assets/images/broadcast/Collaboration_sony_cinema3.jpeg"/>
+<img alt="Sony Cinema 4" loading="lazy" src="assets/images/broadcast/Collaboration_sony_cinema4.jpeg"/>
+<img alt="Sony Cinema 5" loading="lazy" src="assets/images/broadcast/Collaboration_sony_cinema5.jpeg"/>
+<img alt="Sony Cinema 6" loading="lazy" src="assets/images/broadcast/Collaboration_sony_cinema6.jpeg"/>
+</div>
+</section>
+<section class="event reveal" data-category="commissioning">
+<h2>Commissioning – Medical Grade</h2><ul class="event-desc"><li>Commissioned broadcast-grade AV and monitoring systems in a high-reliability environment.</li><li>Performed system validation, signal verification, and functional testing across integrated AV workflows.</li><li>Checked system stability against operational and performance requirements.</li><li>Supported final readiness checks and operational handover for stable deployment.</li></ul>
 
-      <section class="event reveal" data-category="events">
-        <h2>ASEAN – Event Broadcast Support</h2>
-        <p class="event-desc">Delivered technical support for a state-run event production environment, performing pre-event system validation, real-time monitoring, and rapid issue isolation. Maintained stable signal flow across broadcast, AV, and communication systems during high-visibility live events with strict timing and operational demands.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/ASEAN1.jpg" alt="ASEAN 1" loading="lazy">
-          <img src="assets/images/broadcast/ASEAN2.jpg" alt="ASEAN 2" loading="lazy">
-          <img src="assets/images/broadcast/ASEAN3.jpg" alt="ASEAN 3" loading="lazy">
-          <img src="assets/images/broadcast/ASEAN4.jpg" alt="ASEAN 4" loading="lazy">
-          <img src="assets/images/broadcast/ASEAN5.jpg" alt="ASEAN 5" loading="lazy">
-        </div>
-      </section>
+<div class="photo-grid">
+<img alt="Medical Grade 1" loading="lazy" src="assets/images/broadcast/commisioning_medical_grade1.jpeg"/>
+<img alt="Medical Grade 2" loading="lazy" src="assets/images/broadcast/commisioning_medical_grade2.jpeg"/>
+<img alt="Medical Grade 3" loading="lazy" src="assets/images/broadcast/commisioning_medical_grade3.jpeg"/>
+<img alt="Medical Grade 4" loading="lazy" src="assets/images/broadcast/commisioning_medical_grade4.jpeg"/>
+</div>
+</section>
+<section class="event reveal" data-category="events">
+<h2>Dejero – Broadcast Multiplexer &amp; Testing</h2><ul class="event-desc"><li>Integrated bonded cellular transmission systems for reliable remote broadcast contribution.</li><li>Configured and tested Dejero equipment for stable network connectivity and signal contribution.</li><li>Performed performance checks, signal validation, and transmission stability testing.</li><li>Verified reliable remote broadcast workflows for field contribution use cases.</li></ul>
 
-      <section class="event reveal" data-category="events">
-        <h2>Bangko Sentral ng Pilipinas (BSP) – Integration Support</h2>
-        <p class="event-desc">Ensured broadcast/AV integration readiness through pre-installation document review, system validation, and workflow verification. Conducted functional testing, resolved technical issues, and coordinated a smooth operational handover for institutional users.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/BSP2.jpg" alt="BSP 1" loading="lazy">
-          <img src="assets/images/broadcast/BSP3.jpg" alt="BSP 2" loading="lazy">
-          <img src="assets/images/broadcast/BSP4.JPG" alt="BSP 3" loading="lazy">
-          <img src="assets/images/broadcast/BSP5.JPG" alt="BSP 4" loading="lazy">
-          <img src="assets/images/broadcast/BSP6.jpg" alt="BSP 5" loading="lazy">
-          <img src="assets/images/broadcast/BSP7.jpg" alt="BSP 6" loading="lazy">
-          <img src="assets/images/broadcast/BSP8.jpg" alt="BSP 7" loading="lazy">
-        </div>
-      </section>
+<div class="photo-grid">
+<img alt="Dejero Multiplexer" loading="lazy" src="assets/images/broadcast/dejero_broadcast_multiplexer.jpeg"/>
+<img alt="Dejero Testing" loading="lazy" src="assets/images/broadcast/dejero_testing.jpeg"/>
+</div>
+</section>
+<section class="event reveal" data-category="demos">
+<h2>Broadcast Demos (ABS / SMNI / TV5)</h2><ul class="event-desc"><li>Delivered technical demonstrations for broadcast clients and production stakeholders.</li><li>Configured routing paths, monitoring systems, and signal distribution workflows for live demonstration.</li><li>Maintained stable signal flow and professional presentation during client-facing demos.</li><li>Explained system capabilities, operational workflows, and technical behaviour to end users and decision-makers.</li></ul>
 
-      <section class="event reveal" data-category="vehicles">
-        <h2>Outside Broadcast (OB) Van – Multi-Camera Integration</h2>
-        <p class="event-desc">Supported the integration of an 8–12-camera OB Van for multi-camera live production, verifying SDI signal paths, device mapping, and monitoring workflows to ensure reliable field operations. Configured intercom systems, audio chains, and graphics devices, and contributed to routing, cabling, and system troubleshooting.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/OB_VAN1.jpg" alt="OB Van 1" loading="lazy">
-          <img src="assets/images/broadcast/OB_VAN2.jpg" alt="OB Van 2" loading="lazy">
-          <img src="assets/images/broadcast/OB_VAN3.jpg" alt="OB Van 3" loading="lazy">
-          <img src="assets/images/broadcast/OB_VAN4.jpg" alt="OB Van 4" loading="lazy">
-          <img src="assets/images/broadcast/OB_VAN5.jpg" alt="OB Van 5" loading="lazy">
-          <img src="assets/images/broadcast/OB_VAN6.jpg" alt="OB Van 6" loading="lazy">
-        </div>
-      </section>
+<div class="photo-grid">
+<img alt="Demo ABS 1" loading="lazy" src="assets/images/broadcast/demo_abs.jpeg"/>
+<img alt="Demo ABS 2" loading="lazy" src="assets/images/broadcast/demo_abs2.jpeg"/>
+<img alt="Demo SMNI" loading="lazy" src="assets/images/broadcast/demo_SMNI.jpeg"/>
+<img alt="Demo TV5" loading="lazy" src="assets/images/broadcast/demo_tv5.jpeg"/>
+</div>
+</section>
+<section class="event reveal" data-category="events">
+<h2>Event Support</h2><ul class="event-desc"><li>Provided on-site technical support for live broadcast and AV operations.</li><li>Diagnosed issues across routing, monitoring, signal distribution, and communication systems.</li><li>Performed rapid troubleshooting and real-time system adjustments under live-event conditions.</li><li>Ensured stable output, operational continuity, and minimal disruption during production.</li></ul>
 
-      <section class="event reveal" data-category="vehicles">
-        <h2>Electronic News Gathering (ENG) Van – Field Broadcast Setup</h2>
-        <p class="event-desc">Participated in the integration of an ENG Van as one of my first major broadcast projects, gaining hands-on experience in system installation, video-signal routing, cabling, and configuration. Supported routing verification, signal integrity checks, and workflow readiness to ensure rapid deployment and stable transmission during field coverage.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/eng1.jpg" alt="ENG 1" loading="lazy">
-          <img src="assets/images/broadcast/eng2.jpeg" alt="ENG 2" loading="lazy">
-          <img src="assets/images/broadcast/eng3.jpeg" alt="ENG 3" loading="lazy">
-          <img src="assets/images/broadcast/eng4.jpeg" alt="ENG 4" loading="lazy">
-          <img src="assets/images/broadcast/eng5.jpg" alt="ENG 5" loading="lazy">
-          <img src="assets/images/broadcast/eng6.jpg" alt="ENG 6" loading="lazy">
-          <img src="assets/images/broadcast/eng7.jpg" alt="ENG 7" loading="lazy">
-          <img src="assets/images/broadcast/eng8.jpg" alt="ENG 8" loading="lazy">
-          <img src="assets/images/broadcast/eng9.jpg" alt="ENG 9" loading="lazy">
-          <img src="assets/images/broadcast/eng10.jpg" alt="ENG 10" loading="lazy">
-          <img src="assets/images/broadcast/eng11.jpg" alt="ENG 11" loading="lazy">
-          <img src="assets/images/broadcast/eng12.jpg" alt="ENG 12" loading="lazy">
-        </div>
-      </section>
+<div class="photo-grid">
+<img alt="Event Support 1" loading="lazy" src="assets/images/broadcast/event_support1.jpeg"/>
+<img alt="Event Support 2" loading="lazy" src="assets/images/broadcast/event_support2.jpeg"/>
+<img alt="Event Support 3" loading="lazy" src="assets/images/broadcast/event_support3.jpeg"/>
+<img alt="Event Support 4" loading="lazy" src="assets/images/broadcast/event_support4.jpeg"/>
+<img alt="Event Support 5" loading="lazy" src="assets/images/broadcast/event_support5.jpeg"/>
+</div>
+</section>
+<section class="event reveal" data-category="events">
+<h2>House of Representative – Integration &amp; End-User Training</h2><ul class="event-desc"><li>Supported AV and broadcast integration for government operational environments.</li><li>Assisted with system commissioning, workflow validation, and operational readiness checks.</li><li>Delivered end-user training for non-technical operators and institutional users.</li><li>Prepared practical documentation and procedures to support ongoing system use.</li><li>Provided post-deployment support to improve usability and confidence during operation.</li></ul>
 
-      <section class="event reveal" data-category="commissioning">
-        <h2>St. Jude – System Commissioning &amp; Validation</h2>
-        <p class="event-desc">Commissioned AV/broadcast systems, performed signal and functional checks, and ensured operational readiness. Installed and troubleshot PTZ cameras and live-streaming setups, providing user training to deliver high-quality coverage for masses and related events.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/st_jude1.JPG" alt="St Jude 1" loading="lazy">
-          <img src="assets/images/broadcast/st_jude2.JPG" alt="St Jude 2" loading="lazy">
-          <img src="assets/images/broadcast/st_jude3.JPG" alt="St Jude 3" loading="lazy">
-          <img src="assets/images/broadcast/st_jude4.JPG" alt="St Jude 4" loading="lazy">
-          <img src="assets/images/broadcast/st_jude5.JPG" alt="St Jude 5" loading="lazy">
-          <img src="assets/images/broadcast/st_jude6.JPG" alt="St Jude 6" loading="lazy">
-        </div>
-      </section>
+<div class="photo-grid">
+<img alt="HOR 1" loading="lazy" src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining1.jpeg"/>
+<img alt="HOR 2" loading="lazy" src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining2.jpeg"/>
+<img alt="HOR 3" loading="lazy" src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining3.jpeg"/>
+<img alt="HOR 4" loading="lazy" src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining4.jpeg"/>
+<img alt="HOR 5" loading="lazy" src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining5.jpeg"/>
+<img alt="HOR 6" loading="lazy" src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining6.jpeg"/>
+<img alt="HOR 7" loading="lazy" src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining7.jpeg"/>
+<img alt="HOR 8" loading="lazy" src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining8.jpeg"/>
+<img alt="HOR 9" loading="lazy" src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining9.jpeg"/>
+<img alt="HOR 10" loading="lazy" src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining10.jpeg"/>
+<img alt="HOR 11" loading="lazy" src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining11.jpeg"/>
+<img alt="HOR 12" loading="lazy" src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining12.jpeg"/>
+</div>
+</section>
+<section class="event reveal" data-category="events">
+<h2>SEA Games</h2><ul class="event-desc"><li>Led Master Control Room (MCR) integration for large-scale live broadcast operations.</li><li>Led cable assignment and signal mapping across routing, monitoring, intercom, and broadcast infrastructure.</li><li>Designed and validated signal flow for video, audio, and communication pathways.</li><li>Performed end-to-end system validation and routing verification prior to live operations.</li><li>Maintained real-time monitoring and operational control during broadcast windows.</li><li>Performed rapid troubleshooting and fault isolation in time-critical scenarios.</li><li>Coordinated with engineering teams and operators to ensure smooth and consistent broadcast delivery.</li></ul>
 
-      <section class="event reveal" data-category="events">
-        <h2>Collaboration – Sony Cinema</h2>
-        <p class="event-desc">Served as the Technical Support Engineer during Sony Cinema's professional camera showcase event, supporting a renowned film director who led the live demonstration. Set up camera systems, ensured optimal lighting and signal performance, and provided technical guidance to directors and industry attendees.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/Collaboration_sony_cinema1.jpeg" alt="Sony Cinema 1" loading="lazy">
-          <img src="assets/images/broadcast/Collaboration_sony_cinema2.jpeg" alt="Sony Cinema 2" loading="lazy">
-          <img src="assets/images/broadcast/Collaboration_sony_cinema3.jpeg" alt="Sony Cinema 3" loading="lazy">
-          <img src="assets/images/broadcast/Collaboration_sony_cinema4.jpeg" alt="Sony Cinema 4" loading="lazy">
-          <img src="assets/images/broadcast/Collaboration_sony_cinema5.jpeg" alt="Sony Cinema 5" loading="lazy">
-          <img src="assets/images/broadcast/Collaboration_sony_cinema6.jpeg" alt="Sony Cinema 6" loading="lazy">
-        </div>
-      </section>
+<div class="photo-grid">
+<img alt="SEA Games 1" loading="lazy" src="assets/images/broadcast/SEAGAMES_1.jpeg"/>
+<img alt="SEA Games 2" loading="lazy" src="assets/images/broadcast/SEAGAMES_2.jpeg"/>
+<img alt="SEA Games 3" loading="lazy" src="assets/images/broadcast/SEAGAMES_3.jpeg"/>
+<img alt="SEA Games 4" loading="lazy" src="assets/images/broadcast/SEAGAMES_4.jpeg"/>
+<img alt="SEA Games 5" loading="lazy" src="assets/images/broadcast/SEAGAMES_5.jpeg"/>
+</div>
+</section>
+<section class="event reveal" data-category="events">
+<h2>Support – Quiapo</h2><ul class="event-desc"><li>Performed field support and system validation for client broadcast and AV environments.</li><li>Verified signal paths, equipment readiness, and system functionality during site support.</li><li>Diagnosed faults and implemented practical corrective actions to restore service quickly.</li><li>Maintained operational stability through hands-on troubleshooting and readiness checks.</li></ul>
 
-      <section class="event reveal" data-category="commissioning">
-        <h2>Commissioning – Medical Grade</h2>
-        <p class="event-desc">Commissioned broadcast-grade AV and monitoring systems in a medical-grade environment requiring strict reliability standards. Performed validation checks and supported operational handover for stable deployment.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/commisioning_medical_grade1.jpeg" alt="Medical Grade 1" loading="lazy">
-          <img src="assets/images/broadcast/commisioning_medical_grade2.jpeg" alt="Medical Grade 2" loading="lazy">
-          <img src="assets/images/broadcast/commisioning_medical_grade3.jpeg" alt="Medical Grade 3" loading="lazy">
-          <img src="assets/images/broadcast/commisioning_medical_grade4.jpeg" alt="Medical Grade 4" loading="lazy">
-        </div>
-      </section>
+<div class="photo-grid">
+<img alt="Quiapo 1" loading="lazy" src="assets/images/broadcast/support_quiapo.jpeg"/>
+<img alt="Quiapo 2" loading="lazy" src="assets/images/broadcast/support_quiapo1.jpeg"/>
+<img alt="Quiapo 3" loading="lazy" src="assets/images/broadcast/support_quiapo2.jpeg"/>
+</div>
+</section>
+<section class="event reveal" data-category="events">
+<h2>SVC – Studio Configuration</h2><ul class="event-desc"><li>Configured and optimised studio AV and broadcast systems for improved production readiness.</li><li>Performed routing setup, monitoring configuration, and equipment layout adjustments.</li><li>Supported intercom setup, graphics demonstrations, lighting adjustments, and video calibration.</li><li>Validated system workflows to improve usability, reliability, and operational efficiency.</li></ul>
 
-      <section class="event reveal" data-category="events">
-        <h2>Dejero – Broadcast Multiplexer &amp; Testing</h2>
-        <p class="event-desc">Integrated and tested Dejero systems for bonded cellular transmission. Validated performance and stability to support reliable remote broadcast contribution.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/dejero_broadcast_multiplexer.jpeg" alt="Dejero Multiplexer" loading="lazy">
-          <img src="assets/images/broadcast/dejero_testing.jpeg" alt="Dejero Testing" loading="lazy">
-        </div>
-      </section>
+<div class="photo-grid">
+<img alt="Studio Config 1" loading="lazy" src="assets/images/broadcast/SVC-Studio-config1.jpeg"/>
+<img alt="Studio Config 2" loading="lazy" src="assets/images/broadcast/SVC-Studio-config2.jpeg"/>
+<img alt="Studio Config 3" loading="lazy" src="assets/images/broadcast/SVC-Studio-config3.jpeg"/>
+<img alt="Studio Config 4" loading="lazy" src="assets/images/broadcast/SVC-Studio-config4.jpeg"/>
+<img alt="Studio Config 5" loading="lazy" src="assets/images/broadcast/SVC-Studio-config5.jpeg"/>
+</div>
+</section>
+<section class="event reveal" data-category="training">
+<h2>Training – Sony Camera</h2><ul class="event-desc"><li>Completed professional training on Sony cinema camera systems and production workflows.</li><li>Gained hands-on experience with Cinema Line systems, camera operation, and video workflows.</li><li>Developed practical knowledge of DaVinci Resolve and foundational colour-grading techniques.</li><li>Expanded technical capability in professional imaging, camera configuration, and visual production.</li></ul>
 
-      <section class="event reveal" data-category="demos">
-        <h2>Broadcast Demos (ABS / SMNI / TV5)</h2>
-        <p class="event-desc">Delivered technical demonstrations for broadcast clients. Configured routing paths, monitoring, and setup readiness while maintaining stable signal flow and professional presentation.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/demo_abs.jpeg" alt="Demo ABS 1" loading="lazy">
-          <img src="assets/images/broadcast/demo_abs2.jpeg" alt="Demo ABS 2" loading="lazy">
-          <img src="assets/images/broadcast/demo_SMNI.jpeg" alt="Demo SMNI" loading="lazy">
-          <img src="assets/images/broadcast/demo_tv5.jpeg" alt="Demo TV5" loading="lazy">
-        </div>
-      </section>
+<div class="photo-grid">
+<img alt="Training 1" loading="lazy" src="assets/images/broadcast/training_sonycamera1.jpeg"/>
+<img alt="Training 2" loading="lazy" src="assets/images/broadcast/training_sonycamera2.jpeg"/>
+<img alt="Training 3" loading="lazy" src="assets/images/broadcast/training_sonycamera3.jpeg"/>
+<img alt="Training 4" loading="lazy" src="assets/images/broadcast/training_sonycamera4.jpeg"/>
+<img alt="Training 5" loading="lazy" src="assets/images/broadcast/training_sonycamera5.jpeg"/>
+<img alt="Training 6" loading="lazy" src="assets/images/broadcast/training_sonycamera6.jpeg"/>
+</div>
+</section>
+<section class="event reveal" data-category="troubleshooting">
+<h2>Troubleshooting – 4D Project</h2><ul class="event-desc"><li>Led troubleshooting and user support for complex AV and broadcast system environments.</li><li>Performed systematic fault isolation, validation, and resolution across integrated workflows.</li><li>Delivered end-user training to improve operational confidence and reduce support dependency.</li><li>Documented recurring issues and practical fixes to improve long-term system reliability.</li></ul>
 
-      <section class="event reveal" data-category="events">
-        <h2>Event Support</h2>
-        <p class="event-desc">Provided on-site technical support for broadcast operations, resolving signal, routing, and monitoring issues quickly. Focused on fast diagnostics and stable output under live-event pressure.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/event_support1.jpeg" alt="Event Support 1" loading="lazy">
-          <img src="assets/images/broadcast/event_support2.jpeg" alt="Event Support 2" loading="lazy">
-          <img src="assets/images/broadcast/event_support3.jpeg" alt="Event Support 3" loading="lazy">
-          <img src="assets/images/broadcast/event_support4.jpeg" alt="Event Support 4" loading="lazy">
-          <img src="assets/images/broadcast/event_support5.jpeg" alt="Event Support 5" loading="lazy">
-        </div>
-      </section>
+<div class="photo-grid">
+<img alt="4D Project 1" loading="lazy" src="assets/images/broadcast/Troubleshooting_4d_prject1.jpeg"/>
+<img alt="4D Training 1" loading="lazy" src="assets/images/broadcast/Troubleshooting_4d_prject1_end-user_training.jpeg"/>
+<img alt="4D Training 2" loading="lazy" src="assets/images/broadcast/Troubleshooting_4d_prject1_end-user_training2.jpeg"/>
+<img alt="4D Training 3" loading="lazy" src="assets/images/broadcast/Troubleshooting_4d_prject1_end-user_training3.jpeg"/>
+<img alt="4D Training 4" loading="lazy" src="assets/images/broadcast/Troubleshooting_4d_prject1_end-user_training4.jpeg"/>
+<img alt="4D Training 5" loading="lazy" src="assets/images/broadcast/Troubleshooting_4d_prject1_end-user_training5.jpeg"/>
+</div>
+</section>
+<section class="event reveal" data-category="troubleshooting">
+<h2>Troubleshooting – LED Monitor</h2><ul class="event-desc"><li>Diagnosed LED display system issues including signal mismatch, scaling faults, and configuration errors.</li><li>Resolved cabling, refresh, and display-path problems affecting video output quality.</li><li>Validated end-to-end video signal flow to confirm stable and accurate display performance.</li><li>Restored consistent LED display operation through structured troubleshooting.</li></ul>
 
-      <section class="event reveal" data-category="events">
-        <h2>House of Representative – Integration &amp; End-User Training</h2>
-        <p class="event-desc">Supported integration and commissioning of broadcast/AV workflows for government operations. Delivered end-user training, documented procedures, and ensured reliable usability for non-technical users.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining1.jpeg" alt="HOR 1" loading="lazy">
-          <img src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining2.jpeg" alt="HOR 2" loading="lazy">
-          <img src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining3.jpeg" alt="HOR 3" loading="lazy">
-          <img src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining4.jpeg" alt="HOR 4" loading="lazy">
-          <img src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining5.jpeg" alt="HOR 5" loading="lazy">
-          <img src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining6.jpeg" alt="HOR 6" loading="lazy">
-          <img src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining7.jpeg" alt="HOR 7" loading="lazy">
-          <img src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining8.jpeg" alt="HOR 8" loading="lazy">
-          <img src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining9.jpeg" alt="HOR 9" loading="lazy">
-          <img src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining10.jpeg" alt="HOR 10" loading="lazy">
-          <img src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining11.jpeg" alt="HOR 11" loading="lazy">
-          <img src="assets/images/broadcast/Houseofrepresentative_integration_endusertraining12.jpeg" alt="HOR 12" loading="lazy">
-        </div>
-      </section>
+<div class="photo-grid">
+<img alt="LED Monitor 1" loading="lazy" src="assets/images/broadcast/Troubleshooting_LED_monitor1.jpeg"/>
+<img alt="LED Monitor 2" loading="lazy" src="assets/images/broadcast/Troubleshooting_LED_monitor2.jpeg"/>
+</div>
+</section>
+<section class="event reveal" data-category="troubleshooting">
+<h2>Troubleshooting – Switcher</h2><ul class="event-desc"><li>Troubleshot production switcher workflows, source mapping, and operational configurations.</li><li>Resolved input format issues, routing errors, and preview/program configuration problems.</li><li>Validated switching workflows and production signal paths.</li><li>Ensured stable switcher operation and minimised downtime during live production.</li></ul>
 
-      <section class="event reveal" data-category="events">
-        <h2>SEA Games</h2>
-        <p class="event-desc">Provided technical support for large-scale live broadcast operations, ensuring stable signal flow, real-time system monitoring, and fast technical response during critical production windows. Took on a leadership role in Master Control Room (MCR) integration, managing routing design, system validation, and coordination with engineering teams.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/SEAGAMES_1.jpeg" alt="SEA Games 1" loading="lazy">
-          <img src="assets/images/broadcast/SEAGAMES_2.jpeg" alt="SEA Games 2" loading="lazy">
-          <img src="assets/images/broadcast/SEAGAMES_3.jpeg" alt="SEA Games 3" loading="lazy">
-          <img src="assets/images/broadcast/SEAGAMES_4.jpeg" alt="SEA Games 4" loading="lazy">
-          <img src="assets/images/broadcast/SEAGAMES_5.jpeg" alt="SEA Games 5" loading="lazy">
-        </div>
-      </section>
-
-      <section class="event reveal" data-category="events">
-        <h2>Support – Quiapo</h2>
-        <p class="event-desc">Performed field support and system checks for client sites, verifying signal paths, equipment readiness, and operational stability. Focused on fast issue isolation and practical fixes to restore service quickly.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/support_quiapo.jpeg" alt="Quiapo 1" loading="lazy">
-          <img src="assets/images/broadcast/support_quiapo1.jpeg" alt="Quiapo 2" loading="lazy">
-          <img src="assets/images/broadcast/support_quiapo2.jpeg" alt="Quiapo 3" loading="lazy">
-        </div>
-      </section>
-
-      <section class="event reveal" data-category="events">
-        <h2>SVC – Studio Configuration</h2>
-        <p class="event-desc">Configured and optimized studio systems, including routing, monitoring, and equipment layout, to enhance overall operational readiness. Provided direct support to clients across intercom setup, graphics demonstrations, lighting adjustments, and video calibration.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/SVC-Studio-config1.jpeg" alt="Studio Config 1" loading="lazy">
-          <img src="assets/images/broadcast/SVC-Studio-config2.jpeg" alt="Studio Config 2" loading="lazy">
-          <img src="assets/images/broadcast/SVC-Studio-config3.jpeg" alt="Studio Config 3" loading="lazy">
-          <img src="assets/images/broadcast/SVC-Studio-config4.jpeg" alt="Studio Config 4" loading="lazy">
-          <img src="assets/images/broadcast/SVC-Studio-config5.jpeg" alt="Studio Config 5" loading="lazy">
-        </div>
-      </section>
-
-      <section class="event reveal" data-category="training">
-        <h2>Training – Sony Camera</h2>
-        <p class="event-desc">Invited to and attended Sony's Cinema Camera Training Program in Singapore, gaining hands-on experience with Cinema Line systems, DaVinci Resolve, and foundational color-grading techniques.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/training_sonycamera1.jpeg" alt="Training 1" loading="lazy">
-          <img src="assets/images/broadcast/training_sonycamera2.jpeg" alt="Training 2" loading="lazy">
-          <img src="assets/images/broadcast/training_sonycamera3.jpeg" alt="Training 3" loading="lazy">
-          <img src="assets/images/broadcast/training_sonycamera4.jpeg" alt="Training 4" loading="lazy">
-          <img src="assets/images/broadcast/training_sonycamera5.jpeg" alt="Training 5" loading="lazy">
-          <img src="assets/images/broadcast/training_sonycamera6.jpeg" alt="Training 6" loading="lazy">
-        </div>
-      </section>
-
-      <section class="event reveal" data-category="troubleshooting">
-        <h2>Troubleshooting – 4D Project</h2>
-        <p class="event-desc">Led troubleshooting and user support for complex AV/broadcast setups including validation and end-user training. Applied systematic fixes and documented recurring issues to reduce repeat incidents.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/Troubleshooting_4d_prject1.jpeg" alt="4D Project 1" loading="lazy">
-          <img src="assets/images/broadcast/Troubleshooting_4d_prject1_end-user_training.jpeg" alt="4D Training 1" loading="lazy">
-          <img src="assets/images/broadcast/Troubleshooting_4d_prject1_end-user_training2.jpeg" alt="4D Training 2" loading="lazy">
-          <img src="assets/images/broadcast/Troubleshooting_4d_prject1_end-user_training3.jpeg" alt="4D Training 3" loading="lazy">
-          <img src="assets/images/broadcast/Troubleshooting_4d_prject1_end-user_training4.jpeg" alt="4D Training 4" loading="lazy">
-          <img src="assets/images/broadcast/Troubleshooting_4d_prject1_end-user_training5.jpeg" alt="4D Training 5" loading="lazy">
-        </div>
-      </section>
-
-      <section class="event reveal" data-category="troubleshooting">
-        <h2>Troubleshooting – LED Monitor</h2>
-        <p class="event-desc">Diagnosed LED display issues such as signal mismatch, scaling, refresh/config settings, and cabling faults. Validated end-to-end video path to restore consistent display performance.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/Troubleshooting_LED_monitor1.jpeg" alt="LED Monitor 1" loading="lazy">
-          <img src="assets/images/broadcast/Troubleshooting_LED_monitor2.jpeg" alt="LED Monitor 2" loading="lazy">
-        </div>
-      </section>
-
-      <section class="event reveal" data-category="troubleshooting">
-        <h2>Troubleshooting – Switcher</h2>
-        <p class="event-desc">Troubleshot production switcher workflows including source mapping, input format issues, and routing/preview-program configuration. Ensured stable switching operation and minimized downtime during production.</p>
-        <div class="photo-grid">
-          <img src="assets/images/broadcast/Troubleshooting_swither1.jpeg" alt="Switcher 1" loading="lazy">
-          <img src="assets/images/broadcast/Troubleshooting_swither2.jpeg" alt="Switcher 2" loading="lazy">
-          <img src="assets/images/broadcast/Troubleshooting_swither3.jpeg" alt="Switcher 3" loading="lazy">
-        </div>
-      </section>
-    </div>
-  </div>
-
-  <footer>© 2025 Raymark Bobotioc · Broadcast meets data</footer>
-
-  <script>
+<div class="photo-grid">
+<img alt="Switcher 1" loading="lazy" src="assets/images/broadcast/Troubleshooting_swither1.jpeg"/>
+<img alt="Switcher 2" loading="lazy" src="assets/images/broadcast/Troubleshooting_swither2.jpeg"/>
+<img alt="Switcher 3" loading="lazy" src="assets/images/broadcast/Troubleshooting_swither3.jpeg"/>
+</div>
+</section>
+</div>
+</div>
+<footer>© 2025 Raymark Bobotioc · Broadcast meets data</footer>
+<script>
     // Cursor
     const cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
     let mx=0,my=0,rx=0,ry=0;
